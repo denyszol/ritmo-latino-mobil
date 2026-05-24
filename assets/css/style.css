@@ -1,0 +1,327 @@
+/* Lab 5 - Ritmo Latino mobile version */
+:root {
+  --header: #170B58;
+  --page: #0C062F;
+  --button: #0156BD;
+  --button-dark: #004a9e;
+  --white: #ffffff;
+  --muted: #d7d3e8;
+  --card: #120944;
+  --line: rgba(255, 255, 255, 0.16);
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; scroll-behavior: smooth; }
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--page);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+button, a, input, select { touch-action: manipulation; }
+
+.site-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--page);
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+.header-inner {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.logo {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.menu-toggle {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--white);
+}
+.menu-toggle span {
+  width: 23px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.site-nav {
+  display: none;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 14px;
+}
+.site-nav.is-open { display: block; }
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(12, 6, 47, 0.35);
+}
+.site-nav a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 11px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+}
+.site-nav a:hover,
+.site-nav a:focus,
+.site-nav a.active {
+  background: rgba(255, 255, 255, 0.11);
+  outline: none;
+}
+
+main { flex: 1; }
+.mobile-section {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 34px 16px 46px;
+}
+.hero {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+.hero-image {
+  overflow: hidden;
+  border-radius: 0;
+  background: #ffffff;
+}
+.hero-image img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-title {
+  margin: 0;
+  font-size: clamp(30px, 9vw, 48px);
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.primary-btn {
+  min-height: 48px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 0;
+  background: var(--button);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.primary-btn:hover,
+.primary-btn:focus {
+  background: var(--button-dark);
+  color: var(--white);
+  outline: 3px solid rgba(255, 255, 255, 0.32);
+  outline-offset: 3px;
+}
+.page-title {
+  margin: 12px 0 26px;
+  font-size: clamp(28px, 8vw, 42px);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.content-card {
+  display: grid;
+  gap: 24px;
+}
+.content-card p {
+  margin: 0 0 18px;
+  color: var(--white);
+  font-size: 16px;
+}
+.content-card strong { font-weight: 700; }
+.club-photo {
+  overflow: hidden;
+  border-radius: 0;
+}
+.club-photo img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.trainers-list {
+  display: grid;
+  gap: 28px;
+}
+.trainer-card {
+  text-align: center;
+}
+.trainer-card img {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1.34;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.trainer-card h2 {
+  margin: 14px 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.trainer-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+.contacts-list {
+  display: grid;
+  gap: 18px;
+  margin: 0 0 28px;
+}
+.contact-item {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+}
+.contact-item a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.signup-panel {
+  padding: 22px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+}
+.signup-panel h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+}
+.form-field { margin-bottom: 14px; }
+.form-field label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 15px;
+}
+.form-field input,
+.form-field select {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 13px;
+  background: var(--white);
+  color: #111111;
+  font: inherit;
+}
+.form-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  min-height: 20px;
+  font-size: 14px;
+}
+.site-footer {
+  margin-top: auto;
+  padding: 18px 16px;
+  text-align: center;
+  background: var(--header);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (min-width: 576px) {
+  .header-inner { padding: 16px 24px; }
+  .menu-toggle { display: none; }
+  .site-nav {
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+  .site-header .header-inner {
+    max-width: 720px;
+  }
+  .site-header .site-nav {
+    max-width: none;
+  }
+  .header-inner { justify-content: space-between; }
+  .site-nav ul {
+    display: flex;
+    gap: 4px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  .site-nav a {
+    padding: 10px 9px;
+    font-size: 15px;
+  }
+  .mobile-section { padding: 48px 24px 62px; }
+  .hero {
+    grid-template-columns: 0.95fr 1fr;
+    gap: 28px;
+  }
+  .hero-title { font-size: 34px; line-height: 1.8; }
+  .primary-btn { max-width: 230px; }
+  .content-card {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+  .trainers-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .trainer-card h2 { font-size: 17px; }
+  .trainer-card p { font-size: 13px; }
+  .signup-panel { padding: 26px; }
+}
